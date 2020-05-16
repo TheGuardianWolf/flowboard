@@ -1,0 +1,1 @@
+import './boards-show.html';
