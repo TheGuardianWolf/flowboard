@@ -1,9 +1,9 @@
 <template name="App_body">
   <nav id="navigation">
-    <div class="ui fixed inverted menu">
+    <div class="ui menu">
       <div class="ui container">
         <a href="#" class="header item">
-          <img class="logo" src="assets/images/logo.png">
+          <img class="logo" src="assets/images/logo.png" />
           Project Name
         </a>
         {{#if currentUser }}
@@ -17,8 +17,7 @@
   </nav>
   <div id="container">
     <div id="content-container">
-      {{#if Template.subscriptionsReady}}
-      {{> Template.dynamic template=main}}
+      {{#if Template.subscriptionsReady}} {{> Template.dynamic template=main}}
       {{/if}}
     </div>
   </div>

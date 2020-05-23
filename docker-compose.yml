@@ -14,7 +14,7 @@ services:
     links:
       - db
     volumes:
-      - "/home/meteor/flowboard"
+      - "./:/home/meteor/flowboard"
   db:
     expose:
       - "27017"

@@ -1,13 +1,12 @@
-import { Template } from 'meteor/templating';
+import './app-not-found';
+import './boards-list-page.html';
 
 import { Boards } from '../../api/boards';
-
-import './app-not-found';
-
-import './boards-list-page.html';
+import { Template } from 'meteor/templating';
 
 Template.Boards_list_page.helpers({
   boards() {
-    return Boards.find({});
-  }
-})
+    console.log(Boards.find({}).map((b) => b[0]));
+    return Boards.find({}).map((b) => b[0]);
+  },
+});
