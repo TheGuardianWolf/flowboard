@@ -2,10 +2,10 @@ version: "3"
 services:
   app:
     image: theguardianwolf/meteor-dev:latest
-    command: /bin/bash -c "cd .. && git clone https://TheGuardianWolf:af592c7f1676514589eae23aedbf9c537f0d8fb5@github.com/TheGuardianWolf/flowboard && cd flowboard && meteor"
+    command: /bin/bash -c "sudo chown meteor -R flowboard && git clone https://{GIT_USERNAME}:${GIT_PAT_FLOWBOARD}@github.com/TheGuardianWolf/flowboard || cd /home/meteor/flowboard/flowboard && meteor npm install && meteor"
     stdin_open: true
     tty: true
-    working_dir: /home/meteor/flowboard
+    working_dir: /home/meteor
     environment:
       LC_ALL: "C.UTF-8"
       MONGO_URL: "mongodb://db:27017/"
@@ -13,7 +13,11 @@ services:
       - "3000:3000"
     links:
       - db
+    volumes:
+      - "/home/meteor/flowboard"
   db:
     expose:
       - "27017"
     image: mongo
+    volumes:
+      - "/data/db"
