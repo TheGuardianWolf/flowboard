@@ -1,0 +1,11 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/meteor-typings/flow-router/972012feb2a23b0be17fd4340321a4268fa2f3b2/typings.json",
+    "raw": "github:meteor-typings/flow-router#972012feb2a23b0be17fd4340321a4268fa2f3b2",
+    "main": "main.d.ts",
+    "version": "2.12.1",
+    "global": true,
+    "name": "kadira:flow-router"
+  }
+}

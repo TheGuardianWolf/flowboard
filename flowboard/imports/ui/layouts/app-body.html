@@ -1,4 +1,20 @@
 <template name="App_body">
+  <nav id="navigation">
+    <div class="ui fixed inverted menu">
+      <div class="ui container">
+        <a href="#" class="header item">
+          <img class="logo" src="assets/images/logo.png">
+          Project Name
+        </a>
+        {{#if currentUser }}
+        <a href="#" class="item">Boards</a>
+        <div class="right menu">
+          <a class="item" id="nav-logout">Logout</a>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
   <div id="container">
     <div id="content-container">
       {{#if Template.subscriptionsReady}}

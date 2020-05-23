@@ -1,0 +1,11 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/meteor-typings/blaze-layout/a28fe1542f67c4fdcebbba612c7e722f08973b59/typings.json",
+    "raw": "github:meteor-typings/blaze-layout#a28fe1542f67c4fdcebbba612c7e722f08973b59",
+    "main": "main.d.ts",
+    "version": "2.3.0",
+    "global": true,
+    "name": "kadira:blaze-layout"
+  }
+}
