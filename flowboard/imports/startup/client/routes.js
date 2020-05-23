@@ -4,11 +4,11 @@ import '../../ui/pages/root-redirector.js';
 import '../../ui/pages/boards-list-page.js';
 import '../../ui/pages/boards-show-page.js';
 import '../../ui/pages/app-not-found.js';
+import 'meteor/useraccounts:semantic-ui';
 
+import { AccountsTemplates } from 'meteor/useraccounts:core';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { AccountsTemplates } from 'meteor/useraccounts:core';
-import 'meteor/useraccounts:semantic-ui';
 
 FlowRouter.route('/', {
   name: 'App.home',

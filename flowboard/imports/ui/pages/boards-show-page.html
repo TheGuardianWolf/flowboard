@@ -1,2 +1,57 @@
 <template name="Boards_show_page">
+  <div id="Boards_show_page">
+    <div class="ui grid">
+      <div class="row row-header">
+        <div class="column user"></div>
+        {{#each list in lists user}}
+        <div class="column">Column_name</div>
+        {{/each}}
+      </div>
+      {{#each user in users}}
+      <div class="row">
+        <div class="column user">
+          <div class="ui item">
+            <div class="ui tiny image">
+              <img src="data:image/png;base64, {{generateIdenticon "avc" 300}}"
+              />
+            </div>
+            <div class="header">
+              Veronika Ossi
+            </div>
+          </div>
+        </div>
+        {{#each list in lists user}}
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui cards">
+              <!-- {{#each card in cards}} -->
+              <div class="ui fluid card">
+                <div class="content">
+                  <p>He</p>
+                </div>
+              </div>
+              <div class="ui fluid card">
+                <div class="content">
+                  <p>He</p>
+                </div>
+              </div>
+              <div class="ui fluid card">
+                <div class="content">
+                  <p>He</p>
+                </div>
+              </div>
+              <div class="ui fluid card">
+                <div class="content">
+                  <p>He</p>
+                </div>
+              </div>
+              <!-- {{/each}} -->
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </template>

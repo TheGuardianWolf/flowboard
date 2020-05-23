@@ -1,21 +1,21 @@
 <template name="App_body">
-  <nav id="navigation">
-    <div class="ui menu">
-      <div class="ui container">
-        <a href="#" class="header item">
-          <img class="logo" src="assets/images/logo.png" />
-          Project Name
-        </a>
-        {{#if currentUser }}
-        <a href="#" class="item">Boards</a>
-        <div class="right menu">
-          <a class="item" id="nav-logout">Logout</a>
+  <div id="App_body">
+    <nav id="navigation">
+      <div class="ui menu fixed inverted">
+        <div class="ui container">
+          <a href="/" id="nav-logo" class="header item">
+            <img class="logo" src="assets/images/logo.png" />
+            Flowboard
+          </a>
+          {{#if currentUser }}
+          <a href="/boards" id="nav-boards" class="item">Boards</a>
+          <div class="right menu">
+            <a class="item" id="nav-logout">Logout</a>
+          </div>
+          {{/if}}
         </div>
-        {{/if}}
       </div>
-    </div>
-  </nav>
-  <div id="container">
+    </nav>
     <div id="content-container">
       {{#if Template.subscriptionsReady}} {{> Template.dynamic template=main}}
       {{/if}}

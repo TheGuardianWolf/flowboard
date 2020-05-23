@@ -2,23 +2,17 @@
   <div id="boards-list" class="boards-list ui container">
     <div class="ui link cards">
       {{#each board in boards}}
-      <a class="card" href="http://www.dog.com">
-        <div class="content">
-          <div class="header">{{board[title]}}</div>
-        </div>
+      <a class="card" href="/boards/{{board._id}}">
         <div class="image">
-          <img src="https://semantic-ui.com/images/avatar2/large/kristy.png" />
+          <img
+            src="data:image/png;base64, {{generateIdenticon board._id 600}}"
+          />
+        </div>
+        <div class="content">
+          <div class="header">{{board.title}}</div>
         </div>
       </a>
       {{/each}}
     </div>
   </div>
 </template>
-
-<!-- <span class="right floated">
-  {{{board.createdAt}}}
-</span>
-<span>
-  <i class="user icon"></i>
-  {{{board.users.length}}} people
-</span> -->

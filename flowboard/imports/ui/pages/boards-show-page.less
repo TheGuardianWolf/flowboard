@@ -1,0 +1,53 @@
+#Boards_show_page {
+  .row {
+    &.row-header {
+      .column {
+        text-align: center;
+      }
+    }
+
+    .column {
+      width: 300px;
+
+      &.user {
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .item {
+          text-align: center;
+
+          .image {
+            border-radius: 9999px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            padding: 10%;
+          }
+
+          .header {
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .segment {
+        height: 200px;
+        overflow: auto;
+        background-color: #ebecf0;
+        box-sizing: border-box;
+        padding: 0;
+
+        .cards {
+          margin: 0;
+          padding-bottom: 8px;
+
+          .card {
+            margin: 8px;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

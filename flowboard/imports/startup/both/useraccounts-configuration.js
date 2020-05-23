@@ -1,4 +1,6 @@
+import { Accounts } from 'meteor/accounts-base';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
+import SimpleSchema from 'simpl-schema';
 
 /**
  * The useraccounts package must be configured for both client and server to work properly.
@@ -29,3 +31,17 @@ AccountsTemplates.configureRoute('resetPwd', {
   name: 'resetPwd',
   path: '/reset-password',
 });
+
+const pwd = AccountsTemplates.removeField('password');
+const email = AccountsTemplates.removeField('email');
+AccountsTemplates.addFields([
+  {
+    _id: 'username',
+    type: 'text',
+    displayName: 'username',
+    required: true,
+    minLength: 1,
+  },
+  email,
+  pwd,
+]);
