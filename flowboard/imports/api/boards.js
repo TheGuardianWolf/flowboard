@@ -12,7 +12,6 @@ export class Board {
     users = [],
     createdAt = Date.now(),
   }) {
-    this._id = _.camelCase(title);
     this.title = title;
     this.lists = lists;
     this.cards = cards;

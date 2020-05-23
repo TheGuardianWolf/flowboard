@@ -12,7 +12,7 @@
     "bcrypt": "^4.0.1",
     "identicon.js": "^2.3.3",
     "interactjs": "^1.9.14",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "lodash": "^4.17.15",
     "md5": "^2.2.1",
     "meteor-node-stubs": "^1.0.0",

@@ -7,15 +7,16 @@ export class Card {
   constructor({
     title,
     createdBy,
+    ownedBy,
+    users = [],
     content = '',
-    lists = [],
     createdAt = Date.now(),
   }) {
-    this._id = _.camelCase(title);
     this.title = title;
     this.createdBy = createdBy;
+    this.ownedBy = ownedBy;
     this.content = content;
-    this.lists = lists;
+    this.users = users;
     this.createdAt = createdAt;
   }
 }
