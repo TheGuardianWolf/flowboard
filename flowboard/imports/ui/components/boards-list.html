@@ -1,5 +1,31 @@
 <template name="Boards_list">
-  <div id="boards-list" class="page boards-list">
-
+  <div id="boards-list" class="boards-list">
+    <div class="ui link cards">
+      {{#each board in boards}}
+      <a class="card" href="http://www.dog.com">
+        <div class="image">
+          <img src="/images/avatar2/large/matthew.png" title="" style="">
+        </div>
+        <div class="content">
+          <div class="header">Matt Giampietro</div>
+          <div class="meta">
+            <a>Friends</a>
+          </div>
+          <div class="description">
+            Matthew is an interior designer living in New York.
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            Joined in 2013
+          </span>
+          <span>
+            <i class="user icon"></i>
+            75 Friends
+          </span>
+        </div>
+      </a>
+      {{/each}}
+    </div>
   </div>
 </template>
