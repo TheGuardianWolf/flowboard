@@ -1,4 +1,4 @@
-#add-board {
+#new-board {
   height: 200px;
   display: flex;
   justify-content: center;
@@ -13,5 +13,58 @@
   .header {
     margin-top: 5px;
     user-select: none;
+  }
+}
+
+#Boards_list_page {
+  padding: 0 15px;
+  .cards {
+    margin-top: 0;
+    .card {
+      margin: 12px 7px;
+      display: block;
+      text-decoration: none;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      .content {
+        flex-shrink: 0;
+      }
+      .image {
+        flex-shrink: 1;
+        overflow: hidden;
+        background-color: #f0f0f0;
+
+        img {
+          height: 100%;
+          width: auto;
+          margin: 0px auto;
+        }
+      }
+    }
+  }
+
+  .modal {
+    .modal-dialog {
+      height: 100%;
+      margin: 0;
+      width: 100%;
+      max-width: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .ui.modal {
+        pointer-events: all;
+        position: static;
+        height: auto;
+      }
+    }
+  }
+
+  .modal.show {
+    .ui.modal {
+      visibility: visible !important;
+      display: block !important;
+    }
   }
 }

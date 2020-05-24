@@ -1,22 +1,25 @@
 <template name="App_body">
   <div id="App_body">
-    <nav id="navigation">
-      <div class="ui menu fixed inverted">
-        <div class="ui container">
-          <a href="/" id="nav-logo" class="header item">
-            <img class="logo" src="assets/images/logo.png" />
-            Flowboard
-          </a>
-          {{#if currentUser }}
-          <a href="/boards" id="nav-boards" class="item">Boards</a>
-          <div class="right menu">
-            <a class="item" id="nav-logout">Logout</a>
-          </div>
-          {{/if}}
-        </div>
+    <nav id="navigation" class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a href="/" id="nav-logo" class="navbar-brand">
+        Flowboard
+      </a>
+      {{#if currentUser }}
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="/boards" id="nav-boards" class="nav-link">Boards</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/" id="nav-logout">Logout</a>
+          </li>
+        </ul>
       </div>
+      {{/if}}
     </nav>
-    <div id="content-container">
+    <div class="page-container">
       {{#if Template.subscriptionsReady}} {{> Template.dynamic template=main}}
       {{/if}}
     </div>

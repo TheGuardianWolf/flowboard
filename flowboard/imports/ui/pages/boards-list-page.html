@@ -1,5 +1,5 @@
 <template name="Boards_list_page">
-  <div id="boards-list" class="boards-list ui container">
+  <div id="Boards_list_page" class="boards-list">
     <div class="ui link cards">
       {{#each board in boards}}
       <a class="card" href="/boards/{{board._id}}">
@@ -13,39 +13,63 @@
         </div>
       </a>
       {{/each}}
-      <div id="add-board" class="card">
+      <div
+        id="new-board"
+        class="card"
+        data-toggle="modal"
+        data-target="#newBoardModal"
+      >
         <i class="plus icon"></i>
         <div class="header">Create new board</div>
       </div>
     </div>
-    <div id="modal-add-board" class="ui modal">
-      <i class="close icon"></i>
-      <div class="header">
-        Profile Picture
-      </div>
-      <div class="image content">
-        <div class="ui medium image">
-          <img src="/images/avatar/large/chris.jpg" />
-        </div>
-        <div class="description">
-          <div class="ui header">
-            We've auto-chosen a profile image for you.
+    <div
+      class="modal fade"
+      id="newBoardModal"
+      tabindex="-1"
+      role="dialog"
+      style="display: none;"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="ui modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Create new board
           </div>
-          <p>
-            We've grabbed the following image from the
-            <a href="https://www.gravatar.com" target="_blank">gravatar</a>
-            image associated with your registered e-mail address.
-          </p>
-          <p>Is it okay to use this photo?</p>
-        </div>
-      </div>
-      <div class="actions">
-        <div class="ui black deny button">
-          Nope
-        </div>
-        <div class="ui positive right labeled icon button">
-          Yep, that's me
-          <i class="checkmark icon"></i>
+          <div class="image content">
+            <div class="ui medium image">
+              <img src="/images/avatar/large/chris.jpg" />
+            </div>
+            <div class="description">
+              <div class="ui header">
+                Fill in the details.
+              </div>
+              <form id="form-new-board" class="ui form">
+                <div class="field">
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter your board's title"
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui black deny button">
+              Nope
+            </div>
+            <div
+              id="form-new-board-submit"
+              class="ui positive right labeled icon button"
+            >
+              Yep, that's me
+              <i class="checkmark icon"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>

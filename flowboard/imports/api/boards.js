@@ -1,4 +1,5 @@
 import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
 import _ from 'lodash';
 
 export const Boards = new Mongo.Collection('boards');

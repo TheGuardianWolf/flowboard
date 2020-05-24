@@ -1,6 +1,5 @@
 import { Accounts } from 'meteor/accounts-base';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
-import SimpleSchema from 'simpl-schema';
 
 /**
  * The useraccounts package must be configured for both client and server to work properly.

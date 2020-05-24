@@ -19,8 +19,3 @@ Template.App_body.events({
     FlowRouter.go('/boards');
   },
 });
-
-Template.App_body.rendered = function () {
-  console.log($);
-  console.log(this.$);
-};
