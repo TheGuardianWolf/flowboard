@@ -19,13 +19,16 @@ Template.Boards_show_page.helpers({
     return [{}, {}];
   },
 
-  listData() {
+  data() {
     const boardId = FlowRouter.getParam('board_id');
     const currentBoard = Boards.findOne({
       _id: boardId,
     });
 
-    console.log(currentBoard);
+    const view = {
+      users: [],
+      lists: [],
+    };
 
     if (currentBoard) {
       const boardUsers = Meteor.users.find({ _id: { $in: currentBoard.users } }).map((user) => ({
@@ -43,7 +46,7 @@ Template.Boards_show_page.helpers({
         }
       );
 
-      const view = boardLists.map((list) => ({
+      const lists = boardLists.map((list) => ({
         item: list,
         cardsByUsers: boardUsers.map((userView) => ({
           id: userView.id,
@@ -59,10 +62,11 @@ Template.Boards_show_page.helpers({
           })),
         })),
       }));
-      console.log(view);
-      return view;
-    }
 
-    return [];
+      view.users = boardUsers;
+      view.lists = lists;
+    }
+    console.log(view);
+    return view;
   },
 });
