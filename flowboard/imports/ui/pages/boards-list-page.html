@@ -4,21 +4,14 @@
       {{#each board in boards}}
       <a class="card" href="/boards/{{board._id}}">
         <div class="image">
-          <img
-            src="data:image/png;base64, {{generateIdenticon board._id 600}}"
-          />
+          <img src="data:image/png;base64, {{generateIdenticon board.title 310}}" />
         </div>
         <div class="content">
           <div class="header">{{board.title}}</div>
         </div>
       </a>
       {{/each}}
-      <div
-        id="new-board"
-        class="card"
-        data-toggle="modal"
-        data-target="#newBoardModal"
-      >
+      <div id="new-board" class="card" data-toggle="modal" data-target="#newBoardModal">
         <i class="plus icon"></i>
         <div class="header">Create new board</div>
       </div>
@@ -32,23 +25,21 @@
       aria-hidden="true"
     >
       <div class="modal-dialog">
-        <div class="ui modal">
+        <div class="ui small modal">
           <i class="close icon"></i>
           <div class="header">
             Create new board
           </div>
           <div class="image content">
             <div class="ui medium image">
-              <img src="/images/avatar/large/chris.jpg" />
+              <img src="data:image/png;base64, {{generateIdenticon newBoardName 300}}" />
             </div>
             <div class="description">
-              <div class="ui header">
-                Fill in the details.
-              </div>
               <form id="form-new-board" class="ui form">
                 <div class="field">
                   <label>Title</label>
                   <input
+                    id="form-new-board-title"
                     type="text"
                     name="title"
                     placeholder="Enter your board's title"
@@ -59,16 +50,16 @@
             </div>
           </div>
           <div class="actions">
-            <div class="ui black deny button">
-              Nope
-            </div>
-            <div
+            <button class="ui black negative left button" data-dismiss="modal">
+              Cancel
+            </button>
+            <button
               id="form-new-board-submit"
-              class="ui positive right labeled icon button"
+              form="form-new-board"
+              class="ui positive right button"
             >
-              Yep, that's me
-              <i class="checkmark icon"></i>
-            </div>
+              Add board
+            </button>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 <template name="Boards_show_page">
+  {{#each listData}} {{/each}}
   <div id="Boards_show_page">
     <div class="ui grid">
       <div class="row row-header">
@@ -12,8 +13,7 @@
         <div class="column user">
           <div class="ui item">
             <div class="ui tiny image">
-              <img src="data:image/png;base64, {{generateIdenticon "avc" 300}}"
-              />
+              <img src="data:image/png;base64, {{generateIdenticon "avc" 300}}" />
             </div>
             <div class="header">
               Veronika Ossi

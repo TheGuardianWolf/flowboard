@@ -16,6 +16,10 @@
   }
 }
 
+#form-new-board-click-submit {
+  display: none;
+}
+
 #Boards_list_page {
   padding: 0 15px;
   .cards {
@@ -29,6 +33,7 @@
       flex-direction: column;
       .content {
         flex-shrink: 0;
+        height: 48px;
       }
       .image {
         flex-shrink: 1;
@@ -57,6 +62,9 @@
         pointer-events: all;
         position: static;
         height: auto;
+      }
+      .description {
+        flex-grow: 1;
       }
     }
   }

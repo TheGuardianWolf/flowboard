@@ -22,38 +22,44 @@ Template.Boards_show_page.helpers({
   listData() {
     const boardId = FlowRouter.getParam('board_id');
     const currentBoard = Boards.findOne({
-      id: boardId,
+      _id: boardId,
     });
 
-    if (currentBoard) {
-      const boardUsers = Meteor.users
-        .find({ _id: { $in: currentBoard.users } })
-        .map((user) => ({
-          item: user,
-          id: user._id,
-          name:
-            user.username || user.emails[0].address.split('@')[0] || 'unknown',
-        }));
+    console.log(currentBoard);
 
-      const boardLists = Lists.find({
-        _id: { $in: currentBoard.lists, $orderBy: { index: 1 } },
-      });
+    if (currentBoard) {
+      const boardUsers = Meteor.users.find({ _id: { $in: currentBoard.users } }).map((user) => ({
+        item: user,
+        id: user._id,
+        name: user.username || user.emails[0].address.split('@')[0] || 'unknown',
+      }));
+
+      const boardLists = Lists.find(
+        {
+          _id: { $in: currentBoard.lists },
+        },
+        {
+          sort: { index: 1 },
+        }
+      );
 
       const view = boardLists.map((list) => ({
         item: list,
         cardsByUsers: boardUsers.map((userView) => ({
           id: userView.id,
           userName: userView.name,
-          cards: Cards.find({
-            ownedBy: userView.id,
-            $orderby: { createdAt: 1 },
-          }).map((card) => ({
+          cards: Cards.find(
+            {
+              ownedBy: userView.id,
+            },
+            { sort: { createdAt: 1 } }
+          ).map((card) => ({
             id: card._id,
             title: card.title,
           })),
         })),
       }));
-
+      console.log(view);
       return view;
     }
 
