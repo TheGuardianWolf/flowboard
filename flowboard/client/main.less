@@ -5,3 +5,30 @@ body {
     height: 100%;
   }
 }
+
+.modal {
+  .modal-dialog {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ui.modal {
+      pointer-events: all;
+      position: static;
+      height: auto;
+    }
+    .description {
+      flex-grow: 1;
+    }
+  }
+}
+
+.modal.show {
+  .ui.modal {
+    visibility: visible !important;
+    display: block !important;
+  }
+}

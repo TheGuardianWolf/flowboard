@@ -4,7 +4,9 @@ import './boards-list-page.less';
 
 import { Board, Boards } from '../../api/boards';
 
+import $ from 'jquery';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Meteor } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
 import { generateIdenticon } from '../../startup/client/template-helpers';
@@ -24,7 +26,7 @@ const formSubmit = (event) => {
   });
   Boards.insert(board);
 
-  window.$(document.getElementById('newBoardModal')).modal('hide');
+  $(document.getElementById('newBoardModal')).modal('hide');
 };
 
 Template.Boards_list_page.onCreated(() => {

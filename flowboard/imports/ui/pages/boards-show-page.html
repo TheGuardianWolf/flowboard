@@ -1,11 +1,32 @@
 <template name="Boards_show_page">
   {{#let model=data}}
   <div id="Boards_show_page">
-    <div class="board-container">
-      <div class="board-column header">
-        <div class="board-row header"></div>
-        {{#each user in model.users}}
-        <div class="board-row">
+    <div class="ui secondary  menu">
+      <div class="header item">
+        {{model.board.title}}
+      </div>
+      <a id="board-add-user" class="item">
+        Add/remove me
+      </a>
+      <div class="right menu">
+        {{#if isCreator}}
+        <a class="ui item">
+          Delete board
+        </a>
+        {{/if}}
+      </div>
+    </div>
+    <div class="grid">
+      <div class="row header">
+        <div class="column header"></div>
+        {{#each list in model.lists}}
+        <div class="column">{{list.title}}</div>
+        {{/each}}
+        <div class="column new-list" data-toggle="modal" data-target="#newListModal">Create new list</div>
+      </div>
+      {{#each user in model.users}}
+      <div class="row">
+        <div class="column header">
           <div class="ui item">
             <div class="ui tiny image">
               <img src="data:image/png;base64, {{generateIdenticon user.name 300}}" />
@@ -15,57 +36,11 @@
             </div>
           </div>
         </div>
-        {{/each}}
-      </div>
-      {{#each list in model.list}}
-      <div class="board-column">
-        <div class="board-row header"></div>
-        {{#each userCards in list.cardsByUsers}}
-        <div class="board-row">
-          <div class="ui segment">
-            <div class="ui cards">
-              <!-- {{#each card in cards}} -->
-              <div class="ui fluid card">
-                <div class="content">
-                  <p>He</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{/each}}
-      </div>
-      {{/each}}
-      <div class="board-column">
-        <div class="board-row header">Create new list</div>
-      </div>
-    </div>
-
-    <div class="ui grid">
-      <div class="row row-header">
-        <div class="column user"></div>
-        {{#each list in lists user}}
-        <div class="column">Column_name</div>
-        {{/each}}
-      </div>
-      {{#each user in users}}
-      <div class="row">
-        <div class="column user">
-          <div class="ui item">
-            <div class="ui tiny image">
-              <img src="data:image/png;base64, {{generateIdenticon "avc" 300}}" />
-            </div>
-            <div class="header">
-              Veronika Ossi
-            </div>
-          </div>
-        </div>
-        {{#each list in lists user}}
+        {{#each list in model.lists}}
         <div class="column">
           <div class="ui segment">
             <div class="ui cards">
-              <!-- {{#each card in cards}} -->
-              <div class="ui fluid card">
+              <div class="ui fluid card" data-card-id="id">
                 <div class="content">
                   <p>test</p>
                 </div>
@@ -85,13 +60,84 @@
                   <p>test</p>
                 </div>
               </div>
-              <!-- {{/each}} -->
             </div>
+            <button class="ui bottom attached button" tabindex="0" data-toggle="modal" data-target="#newCardModal">Add
+              card</button>
           </div>
         </div>
         {{/each}}
+        <div class="column new-list">
+          <div class="ui segment" data-toggle="modal" data-target="#newListModal">
+            <div class="icon-wrapper">
+              <i class="plus icon"></i>
+            </div>
+          </div>
+        </div>
       </div>
       {{/each}}
+    </div>
+  </div>
+  <div class="modal fade" id="newListModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="ui small modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Create new list
+        </div>
+        <div class="content">
+          <div class="description">
+            <form id="form-new-list" class="ui form">
+              <div class="field">
+                <label>Title</label>
+                <input id="form-new-list-title" type="text" name="title" placeholder="Enter your list's title"
+                  required />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="ui black negative left button" data-dismiss="modal">
+            Cancel
+          </button>
+          <button id="form-new-list-submit" form="form-new-list" class="ui positive right button">
+            Add list
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="newCardModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="ui small modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Create new card
+        </div>
+        <div class="content">
+          <div class="description">
+            <form id="form-new-list" class="ui form">
+              <div class="field">
+                <label>Title</label>
+                <input id="form-new-list-title" type="text" name="title" placeholder="Enter your card's title"
+                  required />
+              </div>
+              <div class="field">
+                <label>Description</label>
+                <textarea id="form-new-list-description" type="text" name="description"
+                  placeholder="Enter your card's description"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="ui black negative left button" data-dismiss="modal">
+            Cancel
+          </button>
+          <button id="form-new-card-submit" form="form-new-card" class="ui positive right button">
+            Add card
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   {{/let}}
