@@ -2,7 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import _ from 'lodash';
 
 export enum BoardType {
-  Flowboard,
+  FlowBoard,
+}
+
+export enum CardType {
+  FlowCard,
 }
 
 export interface IBaseModel {
@@ -25,9 +29,19 @@ export interface ICard extends IBaseModel {
   title: string;
   order: number;
   archived: boolean;
+  type: CardType;
 }
 
-export class Card {}
+export class Card extends BaseModel implements ICard {
+  title: string;
+  order: number;
+  archived: boolean;
+  type: CardType;
+  constructor(props: ICard) {
+    super();
+    Object.assign(this, props);
+  }
+}
 
 export interface IList extends IBaseModel {
   title: string;
@@ -35,7 +49,15 @@ export interface IList extends IBaseModel {
   archived: boolean;
 }
 
-export class List {}
+export class List extends BaseModel implements IList {
+  title: string;
+  order: number;
+  archived: boolean;
+  constructor(props: IList) {
+    super();
+    Object.assign(this, props);
+  }
+}
 
 export interface IBoard extends IBaseModel {
   title: string;

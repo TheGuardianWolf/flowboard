@@ -1,10 +1,23 @@
-import { Board, Card, IBoard } from './models';
+import { Board, BoardType, Card, CardType, IBoard } from './models';
 
-export class FlowCard extends Card {}
+export interface IFlowCardMeta {
+  flowAge: number;
+}
+
+export class FlowCard extends Card {
+  type = CardType.FlowCard;
+}
+
+export interface IFlowBoardMeta {
+  flowMaxUnit: number;
+  flowUnitName: string;
+  flowUseUAT: boolean;
+}
 
 export class FlowBoard extends Board {
-  meta: { flowMaxUnit: number; flowUnitName: string; flowUseUAT: boolean };
-  constructor(props: IBoard) {
+  type = BoardType.FlowBoard;
+  meta: IFlowBoardMeta;
+  constructor(props: IBoard & { meta: IFlowBoardMeta }) {
     super(props);
   }
 }
