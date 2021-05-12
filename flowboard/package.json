@@ -27,7 +27,7 @@
     "react-hot-loader": "^4.12.21",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "simpl-schema": "^1.7.3",
+    "simpl-schema": "^1.10.2",
     "typescript": "^3.9.5"
   },
   "meteor": {
